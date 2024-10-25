@@ -40,10 +40,24 @@ app.post("/", (req, res) => {
 })
 
 // PUT : MODIFIER un utilisateur basé sur les données enoyées dans le corps(body) et le paramètre passé dans l'url
-app.put("/",(req,res)=> {
-    res.json({
-        msg: "hello rest api ici le PUT",
-    })
+app.put("/:id",(req,res)=> {
+	const {firstName, lastName}= req.body
+	const id = parseInt(req.params.id)
+	const userIndex=users.findIndex((user)=>user.id === id)
+	// utilisateur non trouvé
+	if (userIndex < 0)
+		return res.status(404).json({ msg: "utilisateur non trouvé" })
+	else{
+		// si el est trouvé, nous vérifions quelles valeurs ont été envoyées
+		const { firstName, lastName } = req.body
+		if (firstName) users[userIndex].firstName = firstName
+		if (lastName) users[userIndex].lastName = lastName
+		res.json({
+			msg: "utilisateur mis à jour",
+			user: users[userIndex],
+		})
+	}
+	
 })
 
 app.delete("/",(req, res) => {
