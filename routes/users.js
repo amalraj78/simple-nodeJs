@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
 })
 
 // PUT : MODIFIER un utilisateur basé sur les données enoyées dans le corps(body) et le paramètre passé dans l'url
-router.put("/:id",(req,res)=> {
+router.put("/users/:id",(req,res)=> {
     const {firstName, lastName}= req.body
     const id = parseInt(req.params.id)
     const userIndex=users.findIndex((user)=>user.id === id)
@@ -61,7 +61,7 @@ router.put("/:id",(req,res)=> {
 })
 
 //DELETE METHOD
-router.delete("/",(req, res) => {
+router.delete("/users/:id",(req, res) => {
     res.json({
         msg: "hello rest api ici le DELETE",
     })
