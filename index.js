@@ -9,7 +9,7 @@ app.use(express.json());
 app.use("/api/", usersRouter)
 
 app.get("/", (req, res) => {
-	res.json({
+    res.json({
 		msg: "Welcome to my users API !"
 	})
 })
