@@ -61,8 +61,20 @@ router.put("/:id",(req,res)=> {
 })
 
 //DELETE METHOD
-router.delete("/",(req, res) => {
-    res.json({
-        msg: "hello rest api ici le DELETE",
-    })
+router.delete("/:id",(req, res) => {
+	const id = parseInt(req.params.id)
+	// trouve son index, verifier si le userIndex est positive
+	const userIndex = userArray.findIndex((user) => user.id === id)
+
+	// utilisateur non trouvé
+	if (userIndex < 0)
+		return res.status(404).json({ msg: "utilisateur non trouvé" })
+	else{
+		// si el est trouvé
+		userArray.splice(userIndex, 1)
+
+		res.json({
+			msg: "utilisateur supprimé",
+		})
+	}
 })
