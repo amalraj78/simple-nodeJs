@@ -3,8 +3,6 @@ const app = express()
 const port = 3000
 const usersRouter = require("./routes/users.js")
 
-// Open the database connection
-const db = require("./database")
 
 //middleware
 app.use(express.json())
