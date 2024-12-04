@@ -11,6 +11,7 @@ exports.getAllUsers = function (req, res) {
     })
 }
 
+
 // PUT METHOD
 exports.createNewUser =  (req, res) => {
     // récupérer toutes les données qui arrivent dans le corps de la requête (body)
@@ -101,8 +102,6 @@ exports.updateUser = (req,res)=> {
     } else {
         res.status(400).json({ message: "Aucun champ à mettre à jour" })
     }
-
-
 
 }
 

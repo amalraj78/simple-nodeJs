@@ -9,6 +9,7 @@ module.exports = router
 router.get("/users", getAllUsers)
 
 
+
 // POST : CRÉER un nouvel utilisateur, basé sur les données passées dans le corps(body) de la requête
 router.post("/users",createNewUser)
 
@@ -16,4 +17,4 @@ router.post("/users",createNewUser)
 router.put("/:id",updateUser)
 
 //DELETE METHOD
-router.delete("/",deleteUser)
+router.delete("/:id",deleteUser)
