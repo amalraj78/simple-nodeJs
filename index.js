@@ -1,10 +1,13 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+const express = require('express')
+const app = express()
+const port = 3000
 const usersRouter = require("./routes/users.js")
 
+// Open the database connection
+const db = require("./database")
+
 //middleware
-app.use(express.json());
+app.use(express.json())
 //users endpoint
 app.use("/api/", usersRouter)
 
@@ -15,5 +18,11 @@ app.get("/", (req, res) => {
 })
 
 app.listen(port, () => {
-	console.log(`Serveur en cours d'exécution sur http://localhost:${port}`);
-});
+	console.log(`Serveur en cours d'exécution sur http://localhost:${port}`)
+})
+
+
+
+
+
+
